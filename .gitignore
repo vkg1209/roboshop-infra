@@ -1,0 +1,38 @@
+# Local .terraform directories
+.terraform/
+
+# .tfstate files and backups
+*.tfstate
+*.tfstate.*.backup
+
+# Crash log files
+crash.log
+crash-*.log
+
+# Exclude all .tfvars files, which are likely to contain sensitive data.
+# Variables should be managed through other mechanisms (e.g., CI/CD environment variables, or a secrets manager).
+# If you need to include some .tfvars, add a negation pattern like !important.tfvars
+*.tfvars
+
+# Ignore override files as they are usually used for local development and testing
+# and not intended for sharing in version control.
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Optional: ignore plan files saved before destroying Terraform configuration
+# Uncomment the line below if you want to ignore planout files.
+# *tfplan*
+
+# Optional: ignore graph output files
+*.dot
+
+# Optional: ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+# Editor/OS specific files (optional, but recommended)
+.DS_Store # macOS
+.vscode/ # VS Code
+.idea/ # JetBrains IDEs
