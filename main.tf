@@ -162,3 +162,40 @@ resource "aws_iam_instance_profile" "mysql_profile" {
   name = "mysql"
   role = "ec2SSMParameter"
 }
+
+resource "aws_route53_record" "mongodb" {
+  zone_id = "${local.zone_id}"
+  name    = "mongodb-${var.env}.${var.domain_name}" # mongodb.daws86s.fun
+  type    = "A"
+  ttl     = 1
+  records = [aws_instance.mongodb.private_ip]
+  allow_overwrite = true
+}
+
+resource "aws_route53_record" "redis" {
+  zone_id = "${local.zone_id}"
+  name    = "redis-${var.env}.${var.domain_name}" 
+  type    = "A"
+  ttl     = 1
+  records = [aws_instance.redis.private_ip]
+  allow_overwrite = true
+}
+
+resource "aws_route53_record" "rabbitmq" {
+  zone_id = "${local.zone_id}"
+  name    = "rabbitmq-${var.env}.${var.domain_name}" # 
+  type    = "A"
+  ttl     = 1
+  records = [aws_instance.rabbitmq.private_ip]
+  allow_overwrite = true
+}
+
+resource "aws_route53_record" "mysql" {
+  zone_id = "${local.zone_id}"
+  name    = "mysql-${var.env}.${var.domain_name}" # 
+  type    = "A"
+  ttl     = 1
+  records = [aws_instance.mysql.private_ip]
+  allow_overwrite = true
+}
+
